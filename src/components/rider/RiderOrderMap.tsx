@@ -7,7 +7,6 @@ import "leaflet-routing-machine";
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import { RiMotorbikeFill, RiLoader4Line, RiTimeLine } from "react-icons/ri";
 import toast from "react-hot-toast";
-import { useSocket } from "../../context/useSocket";
 import axios from "axios";
 
 // --- CUSTOM ICONS ---
