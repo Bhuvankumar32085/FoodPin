@@ -1,73 +1,103 @@
-# React + TypeScript + Vite
+# 🍔 FoodPin – Full Stack Food Delivery Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+FoodPin is a full-stack food delivery application inspired by real-world platforms like Zomato and Swiggy.  
+It is built using a microservices architecture with real-time features including live tracking between users and delivery partners, scalable backend services, and production-level deployment.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## React Compiler
+Frontend:  
+https://food-pin.vercel.app  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📌 Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+This project focuses on building a scalable and modular food delivery system.  
+Each core functionality is separated into independent services, making the system easier to maintain and scale.
+
+---
+
+## 👥 User Roles
+
+The application supports multiple user roles:
+
+- **Customer** – Browse food, place orders, and track deliveries  
+- **Restaurant (Seller)** – Manage menu and handle incoming orders  
+- **Delivery Partner (Rider)** – Accept and deliver orders  
+- **Admin** – Verify and manage system operations  
+
+---
+
+## ⚙️ Tech Stack
+
+### Frontend
+- React.js  
+- Tailwind CSS / Custom CSS  
+- Deployed on Vercel  
+
+### Backend
+- Node.js  
+- Express.js  
+- MongoDB  
+
+### Real-Time & Communication
+- Socket.IO (for live updates)  
+- RabbitMQ (for service-to-service communication)  
+
+### DevOps & Infrastructure
+- Docker (containerization)  
+- Redis (caching & performance)  
+- AWS (RabbitMQ hosting)  
+- Render (backend deployment)  
+
+### Payments
+- Razorpay (for Indian users)  
+- Stripe (for global users)  
+
+---
+
+## 🏗️ Microservices
+
+The backend is divided into the following services:
 
 ```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+ authService = "https://foodpin-auth-latest.onrender.com"; 
+ restaurantService = "https://foodpin-restaurant7.onrender.com";
+ utilsService = "https://foodpin-utils.onrender.com";
+ realtimeService = "https://foodpin-realtime-latest.onrender.com";
+ riderService = "https://foodpin-rider2.onrender.com";
+ adminService = "https://foodpin-admin-latest.onrender.com";
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🔥 Features
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- User authentication with role-based access  
+- Food ordering and cart system  
+- Real-time order status updates  
+- Live delivery tracking  
+- Rider navigation support  
+- Notification system (order updates)  
+- Secure payment integration (Razorpay & Stripe)  
+
+---
+
+
+## 📚 Learning Outcomes
+
+While building this project, I worked on:
+
+- Designing a microservices-based system  
+- Implementing real-time features using Socket.IO  
+- Using RabbitMQ for communication between services  
+- Integrating payment gateways  
+- Deploying scalable applications using Docker and cloud platforms  
+
+---
+
+## 📎 Note
+
+This project is a practical implementation of how modern food delivery platforms work internally, including real-time tracking and distributed backend systems.
